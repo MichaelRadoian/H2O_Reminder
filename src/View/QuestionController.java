@@ -16,9 +16,6 @@ public class QuestionController {
     private TextField age;
 
     @FXML
-    private TextField name;
-
-    @FXML
     private TextField weight;
 
     @FXML
@@ -48,7 +45,7 @@ public class QuestionController {
             controller.updateAge(temp);
         }
         else{
-            warning.setContentText("input a number 1 - 110 for age");
+            warning.setContentText("input a number between 1 - 110 for age");
             warning.show();
             return;
         }
