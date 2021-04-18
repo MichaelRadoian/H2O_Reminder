@@ -9,9 +9,14 @@ import javafx.scene.control.TextField;
 
 import java.awt.*;
 
-public class questionController {
+public class QuestionController {
+  private Controller controller;
+
     @FXML
     private TextField age;
+
+    @FXML
+    private TextField name;
 
     @FXML
     private TextField weight;
@@ -22,12 +27,17 @@ public class questionController {
     @FXML
     private TextField minutes;
 
-    private Profile person;
+
     Alert warning = new Alert(Alert.AlertType.WARNING);
+
+    public void initialize(){
+
+    }
 
     public void setData(){
         String inputAge = age.getText();
-        if(isNumber(inputAge)){
+
+        if(isNumber(inputAge) && !inputAge.equals("")){
             int temp = Integer.parseInt(inputAge);
 
             if(temp < 1 || temp > 110){
@@ -35,15 +45,16 @@ public class questionController {
                 warning.show();
                 return;
             }
-            person.setAge(temp);
+            controller.updateAge(temp);
         }
         else{
             warning.setContentText("input a number 1 - 110 for age");
             warning.show();
             return;
         }
-
     }
+
+
 
     public boolean isNumber(String num){
         for(int i = 0; i < num.length(); i++){
@@ -54,5 +65,9 @@ public class questionController {
                 return false;
         }
         return true;
+    }
+
+    public void setMainController(Controller controller){
+        this.controller = controller;
     }
 }

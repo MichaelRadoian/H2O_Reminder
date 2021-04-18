@@ -13,6 +13,9 @@ public class Profile {
     private String phoneNumber;
     private String carrier;
 
+    public Profile(){
+    }
+
     //setter methods
     public void setAge(int a) {
         age = a;
